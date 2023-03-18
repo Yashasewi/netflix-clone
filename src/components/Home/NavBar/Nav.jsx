@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import netflix from "./netflix.png";
 
 const Profile_icon = [
     "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1bdc9a33850498.56ba69ac2ba5b.png",
@@ -12,7 +13,7 @@ const Profile_icon = [
     "https://i.pinimg.com/474x/10/12/c0/1012c06c7e1b0f8f5e60611992785e5a--stupid-stuff-stay-calm.jpg",
 ];
 
-function Nav (){
+function Nav() {
     const [transparent, setTransparent] = useState(false);
 
     const changeBackground = () => {
@@ -29,13 +30,9 @@ function Nav (){
     }, []);
 
     return (
-        <div className={`nav ${transparent ? "nav_transparent" : "nav_black"}`}>
+        <div className={`nav ${transparent ? "nav_black" : "nav_transparent"}`}>
             <div className="nav_content">
-                <img
-                    className="nav_logo"
-                    src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
-                    alt="Netflix Logo"
-                />
+                <img className="nav_logo" src={netflix} alt="Netflix Logo" />
 
                 <img
                     className="nav_avatar"
@@ -45,6 +42,6 @@ function Nav (){
             </div>
         </div>
     );
-};
+}
 
 export default Nav;
