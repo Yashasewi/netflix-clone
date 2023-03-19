@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import netflix from "./netflix.png";
+import "./nav.css";
 
 const Profile_icon = [
     "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1bdc9a33850498.56ba69ac2ba5b.png",
@@ -36,7 +37,7 @@ function Nav() {
 
                 <img
                     className="nav_avatar"
-                    src={Profile_icon[7]}
+                    src={Profile_icon[Math.floor(Math.random() * 8)]}
                     alt="Profile Icon"
                 />
             </div>
