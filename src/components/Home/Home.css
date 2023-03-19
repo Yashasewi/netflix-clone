@@ -40,3 +40,17 @@
 .home{
     padding-bottom: 2rem;
 }
+.banner--fadeBottom {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    bottom: 68.1%;
+    height: 6.68rem;
+    background-image: linear-gradient(
+        180deg,
+        transparent,
+        rgba(37, 37, 37, 0.41),
+        #111
+    );
+    transition: all 0ms;
+}

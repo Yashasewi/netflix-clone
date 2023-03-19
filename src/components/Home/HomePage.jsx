@@ -10,6 +10,7 @@ function HomePage() {
         <div className="home">
             <Nav />
             <Banner />
+            <div className="banner--fadeBottom" />
             <Row
                 title="NETFLIX ORIGINALS"
                 fetchUrl={requests.fetchNetflixOriginals}
