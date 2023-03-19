@@ -1,7 +1,47 @@
-.row{
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* justify-content: space-between; */
-    /* margin: 0 -10px; */
-    /* color: white; */
+.row {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    color: white;
+}
+
+.row_posters::-webkit-scrollbar {
+    display: none;
+}
+
+.row_posters {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-color: transparent transparent;
+    margin-right: 20px;
+}
+
+.row__poster {
+    /* width: 100%; */
+    max-height: 100px;
+    object-fit: contain;
+    margin-right: 10px;
+    transition: transform 450ms;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.row__posterLarge{
+    max-height: 250px;
+}
+
+.row__poster:hover{
+    transform: scale(1.08);
+    transition: all 0.5s ease-in-out;
+}
+
+.movie_title_row{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    margin-top: 0.3rem;
+    user-select: none;
 }
