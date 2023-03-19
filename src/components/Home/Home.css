@@ -39,6 +39,7 @@
 
 .home{
     padding-bottom: 2rem;
+    overflow: hidden;
 }
 .banner--fadeBottom {
     width: 100%;
