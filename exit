@@ -1,0 +1,99 @@
+[33mcommit ae38ac9728fc526ceba7800e6fbc12919d27edd2[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Merge: cb7f4b5 20770a2
+Author: Yashasewi <Yashasewisingh2668@gmail.com>
+Date:   Sun Mar 19 14:22:26 2023 +0530
+
+    Merge branch 'master' of https://github.com/Yashasewi/netflix-clone
+
+[33mcommit cb7f4b5fc6f9dc008ea0083543b887f2fd1ce7cb[m
+Author: Yashasewi <Yashasewisingh2668@gmail.com>
+Date:   Sun Mar 19 14:22:13 2023 +0530
+
+    test
+
+[33mcommit 20770a214c930eb0d57fdc268d1437b6dbab6e07[m
+Merge: df5cd2f 3bbd260
+Author: Yashasewi singh <32950332+Yashasewi@users.noreply.github.com>
+Date:   Sun Mar 19 14:11:33 2023 +0530
+
+    Merge pull request #2 from Yashasewi/restyled/master
+    
+    Restyle hosting
+
+[33mcommit df5cd2f07a39dab58128ead073287f5067a1d2e2[m
+Merge: eac7d67 911e59c
+Author: Yashasewi singh <32950332+Yashasewi@users.noreply.github.com>
+Date:   Sun Mar 19 14:11:13 2023 +0530
+
+    Merge pull request #3 from Yashasewi/build
+    
+    Merge pull request #1 from Yashasewi/master
+
+[33mcommit 911e59c2ba06eb33965ea1469a01bff9eddd452a[m
+Author: Yashasewi singh <32950332+Yashasewi@users.noreply.github.com>
+Date:   Sun Mar 19 14:09:37 2023 +0530
+
+    Update firebase-hosting-merge.yml
+
+[33mcommit 3bbd2605b32c202e237241ec8385962d0788584c[m
+Author: Restyled.io <commits@restyled.io>
+Date:   Sun Mar 19 08:38:00 2023 +0000
+
+    Restyled by whitespace
+
+[33mcommit 78e3e84515308590e977468a0fe706b6d48a1f6d[m
+Author: Restyled.io <commits@restyled.io>
+Date:   Sun Mar 19 08:37:59 2023 +0000
+
+    Restyled by prettier-json
+
+[33mcommit 02f8b3147d4ca417aad6bcedc3fd2d212424fa14[m
+Merge: 5b92035 eac7d67
+Author: Yashasewi singh <32950332+Yashasewi@users.noreply.github.com>
+Date:   Sun Mar 19 14:07:57 2023 +0530
+
+    Merge pull request #1 from Yashasewi/master
+    
+    hosting
+
+[33mcommit 7ff3c16a100a33df041dc0c80ec9e67500ffdcfe[m
+Author: Restyled.io <commits@restyled.io>
+Date:   Sun Mar 19 08:37:56 2023 +0000
+
+    Restyled by prettier
+
+[33mcommit eac7d67346b3fdde9a09ff529af9bf72adde3604[m
+Author: Yashasewi <Yashasewisingh2668@gmail.com>
+Date:   Sun Mar 19 14:06:36 2023 +0530
+
+    hosting
+
+[33mcommit 5b92035bfafccbbe080a4923ccfc2e888bdebfd3[m
+Author: Yashasewi <Yashasewisingh2668@gmail.com>
+Date:   Sun Mar 19 13:04:49 2023 +0530
+
+    minor style fixes
+
+[33mcommit cf1e009c2c3aa71e538131a25bcbb09b2890c8df[m
+Author: Yashasewi <Yashasewisingh2668@gmail.com>
+Date:   Sun Mar 19 12:46:46 2023 +0530
+
+    Home Page Completed
+
+[33mcommit 5673c4aa358ed88785f3f3386e403b68185baa24[m
+Author: Yashasewi <Yashasewisingh2668@gmail.com>
+Date:   Sat Mar 18 16:34:12 2023 +0530
+
+    addign the font page
+
+[33mcommit 33fc1ce4cf2c327b13d4318ca1b3455e1d1dd4e7[m
+Author: Yashasewi <Yashasewisingh2668@gmail.com>
+Date:   Mon Mar 13 20:50:57 2023 +0530
+
+    nav bar
+
+[33mcommit 7e680f7bd74c684201a48cfd0a85cd6c34adfe52[m
+Author: Yashasewi <Yashasewisingh2668@gmail.com>
+Date:   Wed Mar 8 19:52:51 2023 +0530
+
+    Initialize project using Create React App
