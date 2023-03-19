@@ -4,15 +4,15 @@
     width: 100%;
     object-fit: contain;
     color: #ffffff;
+    max-height: 703px;
     /* background-size: auto; */
 }
 
 .banner_content {
-    margin-left: 3rem;
+    margin-left: 6rem;
     margin-right: 3rem;
     padding-top: 15rem;
     padding-bottom: 10rem;
-
 }
 
 .movie_title {
@@ -50,12 +50,3 @@
     transition: all 0.3s;
 }
 
-.banner--fadeBottom {
-    height: 6.68rem;
-    background-image: linear-gradient(
-        180deg,
-        transparent,
-        rgba(37, 37, 37, 0.41),
-        #111
-    );
-}
