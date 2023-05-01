@@ -1,0 +1,47 @@
+.netflix_logo {
+    width: 180px;
+    height: 100px;
+    left: 3%;
+    object-fit: contain;
+    position: fixed;
+}
+.loginNav {
+    height: 65px;
+    position: absolute;
+}
+
+.loginButton {
+    font-size: clamp(0.9rem, 2vw, 1.06rem);
+    top: 4%;
+    right: 2.5%;
+    width: clamp(80px, 8vw, 100px);
+    height: 38px;
+    background-color: red;
+    color: white;
+    /* padding: 0.2rem 1.8rem 0.2rem 1.8rem; */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    position: fixed;
+}
+
+.loginPage {
+    background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/efb4855d-e702-43e5-9997-bba0154152e0/42f6dd08-d478-46e4-a4a8-e3a93aa7e085/IN-en-20230417-popsignuptwoweeks-perspective_alpha_website_small.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.login_gradient {
+    height: 100vh;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+}

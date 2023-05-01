@@ -5,6 +5,10 @@ import Login from "components/Login/Login";
 import "./App.css";
 
 function App() {
+    // const user = {
+    //     name : "test"
+    // };
+    const user = null;
     return (
         // router for creating the router
         <div className="App">
@@ -13,8 +17,15 @@ function App() {
                  of switch in v6 */}
                 <Routes>
                     {/* route to define the route  */}
-                    <Route path="/" exact element={<HomePage />} />
-                    <Route path="/Login" element={<Login />} />
+                    {
+                        // if user is not logged in then redirect to login page
+                        !user ? (
+                            <Route path="/Login" element={<Login />} />
+                        ) : (
+                            // if user is logged in then redirect to home page
+                            <Route path="/" exact element={<HomePage />} />
+                        )
+                    }
                 </Routes>
             </Router>
         </div>
