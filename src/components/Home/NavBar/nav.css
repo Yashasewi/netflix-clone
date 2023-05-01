@@ -20,9 +20,7 @@
     border-radius: 2px;
 }
 
-.nav_black {
-    background-color: #111;
-}
+
 .nav {
     padding-top: 40px;
     position: fixed;
@@ -36,3 +34,4 @@
 .nav_transparent {
     background-color: transparent;
 }
+
