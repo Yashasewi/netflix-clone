@@ -84,3 +84,10 @@ select {
 ::-webkit-scrollbar {
     display: none;
 }
+
+#root{
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+}
