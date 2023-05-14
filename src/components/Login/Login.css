@@ -182,6 +182,11 @@
     font-size: clamp(0.73rem, 2vw, 0.9rem);
 }
 
+.signIn_needHelp:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .signIn_checkbox input {
     margin-right: 0.5rem;
     cursor: pointer;
@@ -219,4 +224,8 @@
     color: rgb(59, 131, 238);
     cursor: pointer;
     padding-left: 10px;
+}
+
+.signIn_text1 > span:hover {
+    text-decoration: underline;
 }
