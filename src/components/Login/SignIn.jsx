@@ -5,6 +5,7 @@ const SignIn = () => {
     const mailRef = useRef(null);
     const passwordRef = useRef(null);
 
+    // 
     const register = (e) => {
         e.preventDefault();
         auth.createUserWithEmailAndPassword(

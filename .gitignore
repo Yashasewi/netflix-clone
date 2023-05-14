@@ -3,6 +3,7 @@
 # API keys
 .env
 
+/.vscode
 # dependencies
 /node_modules
 /.pnp
