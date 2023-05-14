@@ -1,5 +1,4 @@
 {
-    "cSpell.words": [
-        "reduxjs"
-    ]
+    "cSpell.words": ["reduxjs"],
+    "githubPullRequests.ignoredPullRequestBranches": ["master"]
 }
