@@ -4,6 +4,7 @@
 .env
 
 /.vscode
+/.firebase
 # dependencies
 /node_modules
 /.pnp
