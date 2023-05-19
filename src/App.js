@@ -5,24 +5,37 @@ import Login from "components/Login/Login";
 import "./App.css";
 import { useEffect } from "react";
 import { auth } from "./firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "features/userSlice";
+import Profile from "components/Profile/Profile";
 
 function App() {
+    const dispatch = useDispatch();
     // const user = {
     //     name : "test"
     // };
-    const user = null;
+    const user = useSelector(selectUser);
+    // const user = null;
+    const isUserLoggedIn = user ? true : false;
+    // console.log(isUserLoggedIn);
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
-                console.log(authUser);
-                console.log("user is logged in");
+                // console.log(authUser);
+                // console.log(`user is logged in as ${authUser.email}`);
+                dispatch(
+                    login({
+                        uid: authUser.uid,
+                        email: authUser.email,
+                    })
+                );
             } else {
-                console.log("user is logged out");
+                dispatch(logout());
             }
         });
         return unsubscribe;
-    }, []);
+    }, [dispatch]);
 
     return (
         // router for creating the router
@@ -32,15 +45,13 @@ function App() {
                  of switch in v6 */}
                 <Routes>
                     {/* route to define the route  */}
-                    {
-                        // if user is not logged in then redirect to login page
-                        !user ? (
-                            <Route path="/Login" element={<Login />} />
-                        ) : (
-                            // if user is logged in then redirect to home page
-                            <Route path="/" exact element={<HomePage />} />
-                        )
-                    }
+                    <Route path="/" exact element={<HomePage />} />
+                    <Route
+                        path="/login"
+                        element={<Login isUserLoggedIn={isUserLoggedIn} />}
+                    />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="*" element={<h1>404 Not Found</h1>} />
                 </Routes>
             </Router>
         </div>
