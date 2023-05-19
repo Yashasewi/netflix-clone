@@ -1,9 +1,18 @@
 import Nav from "components/Home/NavBar/Nav";
 import { selectUser } from "features/userSlice";
 import { useSelector } from "react-redux";
+import { auth } from "../../firebase";
+import "./Profile.css";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
     const user = useSelector(selectUser);
+    const navigate = useNavigate();
+    const SignOut = () => {
+        auth.signOut().then(() => {
+            navigate("/login");
+        });
+    };
 
     return (
         <div className="profile_screen">
@@ -18,11 +27,10 @@ function Profile() {
                     <div className="profile_details">
                         <h2>tt</h2>
                         {user && <h2>{user.email}</h2>}
-                        <div className="profile_plans">
-                            <h3>Plans</h3>
-                            <p>Renewal date: 04/03/2021</p>
-                        </div>
                     </div>
+                    <button className="signOut" onClick={SignOut}>
+                        SignOut
+                    </button>
                 </div>
             </div>
         </div>
