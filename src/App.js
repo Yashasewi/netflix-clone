@@ -51,7 +51,22 @@ function App() {
                         element={<Login isUserLoggedIn={isUserLoggedIn} />}
                     />
                     <Route path="/profile" element={<Profile />} />
-                    <Route path="*" element={<h1>404 Not Found</h1>} />
+                    <Route
+                        path="*"
+                        element={
+                            <div className="error_page">
+                                <div className="error_content">
+                                    <h1 className="error_title">Oops!</h1>
+                                    <p className="error_message">
+                                        Something went wrong.
+                                    </p>
+                                    <p className="error_suggestion">
+                                        Please try again later.
+                                    </p>
+                                </div>
+                            </div>
+                        }
+                    />
                 </Routes>
             </Router>
         </div>

@@ -1,10 +1,13 @@
 import "./Login.css";
 import { useState } from "react";
 import SighIn from "./SignIn";
+import { useNavigate } from "react-router-dom";
 
 function Login({ isUserLoggedIn }) {
+    const navigate = useNavigate();
+
     if (isUserLoggedIn) {
-        window.location.href = "/";
+        navigate("/");
     }
 
     const [signIn, setsignIn] = useState(false);
