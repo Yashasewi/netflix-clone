@@ -2,7 +2,11 @@ import "./Login.css";
 import { useState } from "react";
 import SighIn from "./SignIn";
 
-function Login() {
+function Login({ isUserLoggedIn }) {
+    if (isUserLoggedIn) {
+        window.location.href = "/";
+    }
+
     const [signIn, setsignIn] = useState(false);
     return (
         <div className="loginPage">

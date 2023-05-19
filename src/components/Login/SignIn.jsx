@@ -2,37 +2,48 @@ import { useRef } from "react";
 import { auth } from "../../firebase";
 
 const SignIn = () => {
+    // references for email and password
     const mailRef = useRef(null);
     const passwordRef = useRef(null);
 
-    // 
+    // function to register the user with email and password in firebase
     const register = (e) => {
-        e.preventDefault();
+        e.preventDefault(); // to prevent the page from reloading
+
+        // create the user with email and password in firebase
         auth.createUserWithEmailAndPassword(
-            mailRef.current.value,
-            passwordRef.current.value
+            mailRef.current.value, // get the value of email from the reference
+            passwordRef.current.value // get the value of password from the reference
         )
             .then((authUser) => {
+                // if user is created successfully then log the user
                 console.log(authUser);
             })
             .catch((error) => {
+                // if there is any error then alert the error
                 alert(error.message);
             });
     };
+
+    // function to sign in the user with email and password in firebase
     const signIn = (e) => {
-        e.preventDefault();
+        e.preventDefault(); // to prevent the page from reloading
+
+        // sign in the user with email and password in firebase
         auth.signInWithEmailAndPassword(
-            mailRef.current.value,
-            passwordRef.current.value
+            mailRef.current.value, // get the value of email from the reference
+            passwordRef.current.value // get the value of password from the reference
         )
             .then((authUser) => {
+                // if user is signed in successfully then log the user
                 console.log(authUser);
             })
             .catch((error) => {
+                // if there is any error then alert the error
                 alert(error.message);
-            }
-        );
+            });
     };
+
     return (
         <div className="ontop signIn">
             <div className="signIn_body">
