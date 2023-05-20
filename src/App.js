@@ -11,19 +11,13 @@ import Profile from "components/Profile/Profile";
 
 function App() {
     const dispatch = useDispatch();
-    // const user = {
-    //     name : "test"
-    // };
     const user = useSelector(selectUser);
-    // const user = null;
     const isUserLoggedIn = user ? true : false;
-    // console.log(isUserLoggedIn);
+    console.log(isUserLoggedIn);
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
-                // console.log(authUser);
-                // console.log(`user is logged in as ${authUser.email}`);
                 dispatch(
                     login({
                         uid: authUser.uid,
