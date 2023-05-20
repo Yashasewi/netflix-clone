@@ -36,7 +36,13 @@ function Nav() {
     return (
         <div className={`nav ${transparent ? "nav_black" : "nav_transparent"}`}>
             <div className="nav_content">
-                <img className="nav_logo" src={netflix} alt="Netflix Logo" />
+                <Link to={"/"}>
+                    <img
+                        className="nav_logo"
+                        src={netflix}
+                        alt="Netflix Logo"
+                    />
+                </Link>
 
                 <Link to={"/profile"}>
                     {" "}
