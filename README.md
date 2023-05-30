@@ -45,11 +45,14 @@ The Home Page consists of 5 main sections:
 - Logo:
   it redirects you to the home page when you click on it.
 
-- Sign-in button:
+<!-- - Sign-in button:
   it redirects you to the sign-in page.
 
 - Feature title & subtitle:
-  It shows the main sentences of the website.
+  It shows the main sentences of the website. -->
+
+- Profile Button :
+  It will redirect you to the profile page.
 
 **_2) Optform:_**
 It's a text input field and a button, It redirects you to the sign-up page once you click on the button.
@@ -91,9 +94,6 @@ The Sign-in Page consists of 3 main sections:
 
 - Link to Sign-up Page: it redirects you to the sign-up page.
 
-**_3) Footer:_**
-It contains useful links users may need it.
-
 **_### The page is fully responsive to all mobile devices even the small ones. ###_**
 
 # Sign-up Page
@@ -123,9 +123,6 @@ The Sign-up Page consists of 3 main sections:
 - Sign-up Button: It has a validation option, if any field in the form is empty it will be disabled. If the form fields have any data it will be active and will send the data to the firebase database in the backend for registration. It has also an error handling function.
 
 - Link to Sign-in Page: it redirects you to the sign-in page.
-
-**_3) Footer:_**
-It contains useful links users may need it.
 
 **_### The page is fully responsive to all mobile devices even the small ones. ###_**
 
@@ -177,9 +174,6 @@ You can close the video player anytime by clicking anywhere else on the screen.
 ![ScreenShot](/public/images/readme/14.jpg)
 
 </div>
-
-**_6) Footer:_**
-It contains useful links users may need it.
 
 **_### The page is fully responsive to all mobile devices even the small ones. ###_**
 
