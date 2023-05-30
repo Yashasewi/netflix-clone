@@ -33,7 +33,10 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
                                 isLargeRow
                                     ? movie.poster_path
                                     : movie.backdrop_path
-                            }`}
+                                }`}
+                            onClick={() => {
+                                console.log("yash")
+                            }}
                         />
                     );
                 })}
