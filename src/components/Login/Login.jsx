@@ -3,7 +3,7 @@ import { useLayoutEffect, useState } from "react";
 import SighIn from "./SignIn";
 import { useNavigate } from "react-router-dom";
 
-function Login({ isUserLoggedIn }) {
+function Login({ isUserLoggedIn, userUid, setUserUid }) {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
 
@@ -28,7 +28,11 @@ function Login({ isUserLoggedIn }) {
             </nav>
             <div className="login_gradient" />
             {signIn ? (
-                <SighIn email={email} />
+                <SighIn
+                    email={email}
+                    userUid={userUid}
+                    setUserUid={setUserUid}
+                />
             ) : (
                 <div className="login_body ontop">
                     <h1>Unlimited movies, TV shows, and more.</h1>

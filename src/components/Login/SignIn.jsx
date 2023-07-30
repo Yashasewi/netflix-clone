@@ -7,7 +7,7 @@ import {
 } from "firebase/auth";
 import { auth, db } from "../../firebase";
 
-const SignIn = ({ email }) => {
+const SignIn = ({ email, setUserUid }) => {
     // references for email and password
     const mailRef = useRef(null);
     const passwordRef = useRef(null);
@@ -35,6 +35,7 @@ const SignIn = ({ email }) => {
                         last: last_name,
                         email: authUser.user.email,
                     });
+                    setUserUid(docRef.id);
                     console.log("Document written with ID: ", docRef.id);
                 } catch (e) {
                     console.error("Error adding document: ", e);
