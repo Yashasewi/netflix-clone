@@ -6,12 +6,14 @@ import "./Profile.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-function Profile({ isUserLoggedIn }) {
+function Profile({ isUserLoggedIn, setUserUid, userUid }) {
     const user = useSelector(selectUser);
     const navigate = useNavigate();
+    console.log(user);
     useEffect(() => {
         if (!isUserLoggedIn) {
-            navigate("/login");
+            return navigate("/login");
+        } else {
         }
     }, [isUserLoggedIn, navigate]);
     const SignOut = () => {
@@ -33,7 +35,7 @@ function Profile({ isUserLoggedIn }) {
                     />
                     <div className="profile_details">
                         <div className="profile_info_mail">
-                            {user && <h2>{user.email}</h2>}
+                            {user && <h2>{user.email + userUid}</h2>}
                         </div>
                         <div className="plan_details">
                             <h3>Plans{"(Current plan  : Premium)"}</h3>

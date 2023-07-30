@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./components/Home/HomePage";
 
@@ -15,6 +15,7 @@ function App() {
     const dispatch = useDispatch();
     const user = useSelector(selectUser);
     const isUserLoggedIn = user ? true : false;
+    const [userUid, setUserUid] = useState(null);
     console.log(isUserLoggedIn);
 
     useEffect(() => {
@@ -49,11 +50,23 @@ function App() {
 
                     <Route
                         path="/login"
-                        element={<Login isUserLoggedIn={isUserLoggedIn} />}
+                        element={
+                            <Login
+                                isUserLoggedIn={isUserLoggedIn}
+                                userUid={userUid}
+                                setUserUid={setUserUid}
+                            />
+                        }
                     />
                     <Route
                         path="/profile"
-                        element={<Profile isUserLoggedIn={isUserLoggedIn} />}
+                        element={
+                            <Profile
+                                isUserLoggedIn={isUserLoggedIn}
+                                userUid={userUid}
+                                setUserUid={setUserUid}
+                            />
+                        }
                     />
                     <Route
                         path="*"
