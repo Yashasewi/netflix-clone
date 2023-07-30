@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import netflix from "./netflix.png";
 import "./nav.css";
 import { Link } from "react-router-dom";
@@ -31,7 +31,6 @@ function Nav() {
         return () => window.removeEventListener("scroll", changeBackground);
     }, []);
 
-    const [profile, setProfile] = useState(Math.floor(Math.random() * 9));
 
     return (
         <div className={`nav ${transparent ? "nav_black" : "nav_transparent"}`}>
@@ -48,7 +47,7 @@ function Nav() {
                     {" "}
                     <img
                         className="nav_avatar"
-                        src={Profile_icon[profile]}
+                        src={Profile_icon[Math.floor(Math.random() * 9)]}
                         alt="Profile Icon"
                     />
                 </Link>
