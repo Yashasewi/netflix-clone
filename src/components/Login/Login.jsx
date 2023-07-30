@@ -1,16 +1,19 @@
 import "./Login.css";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import SighIn from "./SignIn";
 import { useNavigate } from "react-router-dom";
 
 function Login({ isUserLoggedIn }) {
     const navigate = useNavigate();
+    const [email, setEmail] = useState("");
 
-    if (isUserLoggedIn) {
-        navigate("/");
-    }
+    useLayoutEffect(() => {
+        if (isUserLoggedIn) {
+            return navigate("/");
+        }
+    }, [isUserLoggedIn, navigate]);
 
-    const [signIn, setsignIn] = useState(false);
+    const [signIn, setSignIn] = useState(false);
     return (
         <div className="loginPage">
             <nav className="loginNav">
@@ -19,13 +22,13 @@ function Login({ isUserLoggedIn }) {
                     alt="Netflix logo"
                     className="netflix_logo"
                 />
-                <button onClick={() => setsignIn(true)} className="loginButton">
+                <button onClick={() => setSignIn(true)} className="loginButton">
                     Sign In
                 </button>
             </nav>
             <div className="login_gradient" />
             {signIn ? (
-                <SighIn />
+                <SighIn email={email} />
             ) : (
                 <div className="login_body ontop">
                     <h1>Unlimited movies, TV shows, and more.</h1>
@@ -36,12 +39,19 @@ function Login({ isUserLoggedIn }) {
                     </p>
                     <div className="login_input">
                         <form>
-                            <input type="email" placeholder="Email address" />
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="Email address"
+                            />
                             <button
                                 type="submit"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    setsignIn(true);
+                                    setEmail(
+                                        document.getElementById("email").value
+                                    );
+                                    setSignIn(true);
                                 }}
                                 className="login_getStarted"
                             >

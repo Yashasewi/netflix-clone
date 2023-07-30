@@ -12,58 +12,69 @@ import { login, logout, selectUser } from "features/userSlice";
 import Profile from "components/Profile/Profile";
 
 function App() {
-  const dispatch = useDispatch();
-  const user = useSelector(selectUser);
-  const isUserLoggedIn = user ? true : false;
-  console.log(isUserLoggedIn);
+    const dispatch = useDispatch();
+    const user = useSelector(selectUser);
+    const isUserLoggedIn = user ? true : false;
+    console.log(isUserLoggedIn);
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((authUser) => {
-      if (authUser) {
-        dispatch(
-          login({
-            uid: authUser.uid,
-            email: authUser.email,
-          })
-        );
-      } else {
-        dispatch(logout());
-      }
-    });
-    return unsubscribe;
-  }, [dispatch]);
-
-  return (
-    // router for creating the router
-    <div className="App">
-      <Router>
-        {/* routes for creating routes and we use routes instead
-                 of switch in v6 */}
-        <Routes>
-          {/* route to define the route  */}
-          <Route path="/" exact element={<HomePage />} />
-
-          <Route
-            path="/login"
-            element={<Login isUserLoggedIn={isUserLoggedIn} />}
-          />
-          <Route path="/profile" element={<Profile />} />
-          <Route
-            path="*"
-            element={
-              <div className="error_page">
-                <div className="error_content">
-                  <h1 className="error_title">Oops!</h1>
-                  <p className="error_message">Something went wrong.</p>
-                  <p className="error_suggestion">Please try again later.</p>
-                </div>
-              </div>
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
+            if (authUser) {
+                dispatch(
+                    login({
+                        uid: authUser.uid,
+                        email: authUser.email,
+                    })
+                );
+            } else {
+                dispatch(logout());
             }
-          />
-        </Routes>
-      </Router>
-    </div>
-  );
+        });
+        return unsubscribe;
+    }, [dispatch]);
+
+    return (
+        // router for creating the router
+        <div className="App">
+            <Router>
+                {/* routes for creating routes and we use routes instead
+                 of switch in v6 */}
+                <Routes>
+                    {/* route to define the route  */}
+                    <Route
+                        path="/"
+                        exact
+                        element={<HomePage isUserLoggedIn={isUserLoggedIn} />}
+                    />
+
+                    <Route
+                        path="/login"
+                        element={<Login isUserLoggedIn={isUserLoggedIn} />}
+                    />
+                    <Route
+                        path="/profile"
+                        element={<Profile isUserLoggedIn={isUserLoggedIn} />}
+                    />
+                    <Route
+                        path="*"
+                        element={
+                            <div className="error_page">
+                                <div className="error_content">
+                                    <h1 className="error_title">Oops!</h1>
+                                    <p className="error_message">
+                                        Something went wrong.
+                                    </p>
+                                    <p className="error_suggestion">
+                                        Please try again later.
+                                    </p>
+                                </div>
+                            </div>
+                        }
+                    />
+                </Routes>
+            </Router>
+        </div>
+    );
 }
 
 export default App;

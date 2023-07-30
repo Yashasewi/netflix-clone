@@ -4,10 +4,16 @@ import { useSelector } from "react-redux";
 import { auth } from "../../firebase";
 import "./Profile.css";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-function Profile() {
+function Profile({ isUserLoggedIn }) {
     const user = useSelector(selectUser);
     const navigate = useNavigate();
+    useEffect(() => {
+        if (!isUserLoggedIn) {
+            navigate("/login");
+        }
+    }, [isUserLoggedIn, navigate]);
     const SignOut = () => {
         auth.signOut().then(() => {
             navigate("/login");
