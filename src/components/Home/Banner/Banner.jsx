@@ -21,9 +21,6 @@ function Banner() {
         fetchData();
     }, []);
 
-    // console.log(movie);
-
-    // console.log(process.env.REACT_APP_API_KEY);
 
     const truncate = (str, n) => {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
