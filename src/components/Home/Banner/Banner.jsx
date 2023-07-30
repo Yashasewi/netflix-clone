@@ -21,7 +21,6 @@ function Banner() {
         fetchData();
     }, []);
 
-
     const truncate = (str, n) => {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
     };
@@ -47,7 +46,6 @@ function Banner() {
                     {truncate(movie?.overview, 200)}
                 </h2>
             </div>
-           
         </header>
     );
 }
