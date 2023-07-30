@@ -10,6 +10,7 @@ import { auth } from "./firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "features/userSlice";
 import Profile from "components/Profile/Profile";
+import Movie from "components/Movies/Movie";
 
 function App() {
     const dispatch = useDispatch();
@@ -68,6 +69,8 @@ function App() {
                             />
                         }
                     />
+                    <Route path="/movie/:movie_id" element={<Movie />} />
+
                     <Route
                         path="*"
                         element={
