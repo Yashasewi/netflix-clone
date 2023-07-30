@@ -1,5 +1,11 @@
 import { useRef, useState } from "react";
-import { auth } from "../../firebase";
+import { collection, addDoc } from "firebase/firestore";
+
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth, db } from "../../firebase";
 
 const SignIn = ({ email }) => {
     // references for email and password
@@ -7,18 +13,34 @@ const SignIn = ({ email }) => {
     const passwordRef = useRef(null);
     const [SignUp, setSignUp] = useState(false);
     const [currentEmail, setCurrentEmail] = useState(email || ""); // Initialize the email state
+    const [first_name, setFirstName] = useState("");
+    const [last_name, setLastName] = useState("");
+
     // function to register the user with email and password in firebase
     const register = (e) => {
         e.preventDefault(); // to prevent the page from reloading
 
         // create the user with email and password in firebase
-        auth.createUserWithEmailAndPassword(
+        createUserWithEmailAndPassword(
+            auth,
             mailRef.current.value, // get the value of email from the reference
             passwordRef.current.value // get the value of password from the reference
         )
-            .then((authUser) => {
+            .then(async (authUser) => {
                 // if user is created successfully then log the user
-                console.log(authUser);
+
+                try {
+                    const docRef = await addDoc(collection(db, "users"), {
+                        first: first_name,
+                        last: last_name,
+                        email: authUser.user.email,
+                    });
+                    console.log("Document written with ID: ", docRef.id);
+                } catch (e) {
+                    console.error("Error adding document: ", e);
+                }
+
+                console.log(authUser.user.email);
             })
             .catch((error) => {
                 // if there is any error then alert the error
@@ -32,12 +54,14 @@ const SignIn = ({ email }) => {
         e.preventDefault(); // to prevent the page from reloading
 
         // sign in the user with email and password in firebase
-        auth.signInWithEmailAndPassword(
+        signInWithEmailAndPassword(
+            auth,
             mailRef.current.value, // get the value of email from the reference
             passwordRef.current.value // get the value of password from the reference
         )
             .then((authUser) => {
                 // if user is signed in successfully then log the user
+
                 console.log(authUser);
             })
             .catch((error) => {
@@ -62,6 +86,23 @@ const SignIn = ({ email }) => {
                 <h1>{SignUp ? " Sign Up" : "Sign In"}</h1>
                 <form>
                     <input
+                        type="text"
+                        placeholder="First Name"
+                        className="signIn_input "
+                        id="first_name"
+                        style={{ display: SignUp ? "block" : "none" }}
+                        onChange={(e) => setFirstName(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Last Name"
+                        className="signIn_input "
+                        id="last_name"
+                        style={{ display: SignUp ? "block" : "none" }}
+                        onChange={(e) => setLastName(e.target.value)}
+                    />
+
+                    <input
                         ref={mailRef}
                         type="email"
                         placeholder="Email or phone number"
@@ -75,7 +116,7 @@ const SignIn = ({ email }) => {
                     />
 
                     <button
-                        onClick={signIn}
+                        onClick={SignUp ? register : signIn}
                         type="submit"
                         className="signIn_button"
                     >
