@@ -7,15 +7,41 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
 
     const [movies, setMovies] = useState([]);
 
+    // if (title === "Similar Movies") {
+    //     useEffect(() => {
+    //         async function fetchData() {
+    //             const request = await axios.get(fetchUrl);
+    //             setMovies(request.data.results);
+    //             return request;
+    //         }
+    //         fetchData();
+    //     }, [fetchUrl]);
+    // }
+
     useEffect(() => {
         async function fetchData() {
-            const request = await axios.get(fetchUrl);
-            setMovies(request.data.results);
-            return request;
+            if (title === "Similar Movies") {
+                const request = await axios.get(
+                    `https://api.themoviedb.org/3/${fetchUrl}`,
+
+                    {
+                        headers: {
+                            Authorization: `Bearer ${process.env.REACT_APP_API_ACCESS_TOKEN}`,
+                        },
+                    }
+                );
+                setMovies(request.data.results.slice(0, 20));
+                console.log(request.data.results.slice(0, 20));
+                return request;
+            } else {
+                const request = await axios.get(fetchUrl);
+                setMovies(request.data.results);
+                return request;
+            }
         }
         fetchData();
-    }, [fetchUrl]);
-    console.log(movies);
+    }, [fetchUrl, title]);
+    // console.log(movies[0]);
 
     return (
         <div className="row">
@@ -28,22 +54,26 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
                                 key={movie.id}
                                 className="movie_poster_container"
                             >
-                                <img
-                                    key={movie.id}
-                                    className={`row__poster ${
-                                        isLargeRow && "row__posterLarge"
-                                    }`}
-                                    alt={movie.name || movie.original_title}
-                                    src={`${BASE_URL}${
-                                        isLargeRow
-                                            ? movie.poster_path
-                                            : movie.backdrop_path
-                                    }`}
-                                    title={movie.name || movie.original_title} // Use the 'title' attribute for the tooltip
-                                />
-                                <span className="movie_tooltip">
-                                    {movie.name || movie.original_title}
-                                </span>
+                                <a href={`/movie/${movie.id}`}>
+                                    <img
+                                        key={movie.id}
+                                        className={`row__poster ${
+                                            isLargeRow && "row__posterLarge"
+                                        }`}
+                                        alt={movie.name || movie.original_title}
+                                        src={`${BASE_URL}${
+                                            isLargeRow
+                                                ? movie.poster_path
+                                                : movie.backdrop_path
+                                        }`}
+                                        title={
+                                            movie.name || movie.original_title
+                                        } // Use the 'title' attribute for the tooltip
+                                    />
+                                    <span className="movie_tooltip">
+                                        {movie.name || movie.original_title}
+                                    </span>
+                                </a>
                             </div>
                         )
                     );
