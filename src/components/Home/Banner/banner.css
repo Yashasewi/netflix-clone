@@ -1,34 +1,40 @@
+/* banner.css */
 .banner {
     height: 100vh;
     position: relative;
     width: 100%;
-    object-fit: contain;
     color: #ffffff;
-    max-height: 703px;
-    /* background-size: auto; */
+    background-size: cover; /* Use 'cover' to make the image cover the entire banner area */
+    background-position: center center;
 }
 
 .banner_content {
-    margin-left: 6rem;
-    margin-right: 3rem;
-    padding-top: 15rem;
-    padding-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to the left */
+    justify-content: center; /* Center content vertically */
+    height: 100%;
+    padding: 2rem;
+    margin-left: 3rem;
 }
 
 .movie_title {
     font-size: 3rem;
     font-weight: 800;
-    padding-bottom: 0.3rem;
+    margin-bottom: 0.5rem; /* Add some space below the title */
 }
 
 .movie_description {
-    width: 45rem;
+    max-width: 38rem;
     line-height: 1.3;
-    padding-top: 1rem;
-    font-size: 0.8rem;
-    max-width: 380px;
-    height: 80px;
+    font-size: 1rem;
+    margin-top: 1rem; /* Add some space above the description */
+    margin-bottom: 2rem; /* Add some space below the description */
     user-select: none;
+}
+
+.banner_buttons {
+    margin-top: 1rem; /* Add some space above the buttons */
 }
 
 .banner_button {
@@ -40,7 +46,7 @@
     border-radius: 0.3vw;
     font-weight: 700;
     font-size: 1rem;
-    margin-right: 1.3rem;
+    margin-right: 1rem; /* Add space between the buttons */
     background-color: rgba(51, 51, 51, 0.51);
 }
 
@@ -50,3 +56,20 @@
     transition: all 0.3s;
 }
 
+/* Media Query for responsiveness */
+@media screen and (max-width: 768px) {
+    .movie_title {
+        font-size: 2rem;
+    }
+
+    .movie_description {
+        font-size: 0.9rem;
+    }
+
+    .banner_button {
+        font-size: 0.9rem;
+    }
+    .banner_content {
+        margin-left: 0.5rem;
+    }
+}
